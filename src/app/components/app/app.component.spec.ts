@@ -1,31 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { FormsModule }   from '@angular/forms';
+import { LoadingModule } from 'ngx-loading';
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { Hero } from '../../models/hero'
+import { Hero } from '../../models/hero.model'
 
 let title = 'Tour of Heroes';
-// let Windstorm: Hero = {id: 1, name: 'Windstorm'}
-// let hero = Windstorm;
-
-// const HEROES: Hero[] = [
-//   Windstorm,
-//   { id: 11, name: 'Mr. Nice' },
-//   { id: 12, name: 'Narco' },
-//   { id: 13, name: 'Bombasto' },
-//   { id: 14, name: 'Celeritas' },
-//   { id: 15, name: 'Magneta' },
-//   { id: 16, name: 'RubberMan' },
-//   { id: 17, name: 'Dynama' },
-//   { id: 18, name: 'Dr IQ' },
-//   { id: 19, name: 'Magma' },
-//   { id: 20, name: 'Tornado' }
-// ];
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, LoadingModule],
       declarations: [
         AppComponent,
         HeroDetailComponent,
