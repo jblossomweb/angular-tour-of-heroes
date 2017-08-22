@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
-
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Hero } from '../../models/hero';
 
 let Windstorm: Hero = {id: 1, name: 'Windstorm'}
 
