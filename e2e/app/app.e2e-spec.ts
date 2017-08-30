@@ -1,6 +1,6 @@
-import { AppPage } from './app.po';
+import { AppPage } from './app.e2e-page';
 
-describe('angular-tour-of-heroes App', () => {
+describe('App', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -9,6 +9,6 @@ describe('angular-tour-of-heroes App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getHeaderText()).toEqual('Welcome to Tour of Heroes!');
   });
 });

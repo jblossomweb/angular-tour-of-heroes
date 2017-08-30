@@ -1,7 +1,9 @@
-import { TestBed, async } from '@angular/core/testing';
-import { FormsModule }   from '@angular/forms';
+import { TestBed, async }      from '@angular/core/testing';
+import { FormsModule }         from '@angular/forms';
+import { LoadingModule }       from 'ngx-loading';
+import { RouterTestingModule } from '@angular/router/testing';
 import { HeroDetailComponent } from './hero-detail.component';
-import { Hero } from '../../models/hero.model'
+import { Hero }                from '../../models/hero.model'
 
 // let title = 'Tour of Heroes';
 // let Windstorm: Hero = {id: 1, name: 'Windstorm'}
@@ -23,14 +25,14 @@ import { Hero } from '../../models/hero.model'
 describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [FormsModule, LoadingModule, RouterTestingModule],
       declarations: [
         HeroDetailComponent,
       ],
     }).compileComponents();
   }));
 
-  it('should create the hero-detail', async(() => {
+  it('should create the hero-detail component', async(() => {
     const fixture = TestBed.createComponent(HeroDetailComponent);
     const heroDetail = fixture.debugElement.componentInstance;
     expect(heroDetail).toBeTruthy();

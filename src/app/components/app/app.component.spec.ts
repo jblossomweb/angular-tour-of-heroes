@@ -1,19 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
-import { FormsModule }   from '@angular/forms';
-import { LoadingModule } from 'ngx-loading';
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { Hero } from '../../models/hero.model'
 
 let title = 'Tour of Heroes';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, LoadingModule],
+      imports: [RouterTestingModule],
       declarations: [
         AppComponent,
-        HeroDetailComponent,
       ],
     }).compileComponents();
   }));
@@ -36,11 +32,4 @@ describe('AppComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain(`Welcome to ${title}!`);
   }));
-
-  // it(`should render hero in 2nd h2 tag '${hero.name} details'`, async(() => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h2:nth-of-type(2)').textContent).toContain(`${hero.name} details`);
-  // }));
 });
