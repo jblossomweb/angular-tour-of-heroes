@@ -4,7 +4,8 @@ import { LoadingModule } from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
-import { Hero } from '../../models/hero.model'
+import { Hero } from '../../models/hero.model';
+import { HeroService, HeroServiceMock } from '../../services/hero.service';
 
 let title = 'Tour of Heroes';
 
@@ -16,7 +17,15 @@ describe('HeroesComponent', () => {
         HeroesComponent,
         HeroDetailComponent,
       ],
-    }).compileComponents();
+    })
+    .overrideComponent(HeroesComponent, {
+      set: {
+        providers: [
+          { provide: HeroService, useClass: HeroServiceMock },
+        ]
+      }
+    })
+    .compileComponents();
   }));
 
   it('should create the heroes component', async(() => {

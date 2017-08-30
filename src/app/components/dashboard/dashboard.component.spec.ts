@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { LoadingModule } from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DashboardComponent } from './dashboard.component';
+import { HeroService, HeroServiceMock } from '../../services/hero.service';
 
 describe('DashboardComponent', () => {
   beforeEach(async(() => {
@@ -10,7 +11,15 @@ describe('DashboardComponent', () => {
       declarations: [
         DashboardComponent,
       ],
-    }).compileComponents();
+    })
+    .overrideComponent(DashboardComponent, {
+      set: {
+        providers: [
+          { provide: HeroService, useClass: HeroServiceMock },
+        ]
+      }
+    })
+    .compileComponents();
   }));
 
   it('should create the dashboard component', async(() => {

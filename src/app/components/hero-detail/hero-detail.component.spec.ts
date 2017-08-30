@@ -3,7 +3,8 @@ import { FormsModule }         from '@angular/forms';
 import { LoadingModule }       from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeroDetailComponent } from './hero-detail.component';
-import { Hero }                from '../../models/hero.model'
+import { Hero }                from '../../models/hero.model';
+import { HeroService, HeroServiceMock } from '../../services/hero.service';
 
 // let title = 'Tour of Heroes';
 // let Windstorm: Hero = {id: 1, name: 'Windstorm'}
@@ -29,7 +30,15 @@ describe('HeroDetailComponent', () => {
       declarations: [
         HeroDetailComponent,
       ],
-    }).compileComponents();
+    })
+    .overrideComponent(HeroDetailComponent, {
+      set: {
+        providers: [
+          { provide: HeroService, useClass: HeroServiceMock },
+        ]
+      }
+    })
+    .compileComponents();
   }));
 
   it('should create the hero-detail component', async(() => {
