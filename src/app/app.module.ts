@@ -5,6 +5,8 @@ import { RouterModule }  from '@angular/router';
 import { HttpModule }    from '@angular/http';
 
 import { LoadingModule }       from 'ngx-loading';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+
 import { AppRoutingModule }    from './app-routing.module';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -28,6 +30,7 @@ import { HeroDetailComponent } from './components/hero-detail/hero-detail.compon
     BrowserModule,
     FormsModule,
     LoadingModule,
+    AngularFontAwesomeModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule

@@ -2,6 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { FormsModule }   from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 import { HeroesComponent } from './heroes.component';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { Hero } from '../../models/hero.model';
@@ -12,7 +13,12 @@ let title = 'Tour of Heroes';
 describe('HeroesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, LoadingModule, RouterTestingModule],
+      imports: [
+        FormsModule,
+        LoadingModule,
+        RouterTestingModule,
+        AngularFontAwesomeModule
+      ],
       declarations: [
         HeroesComponent,
         HeroDetailComponent,

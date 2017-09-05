@@ -2,6 +2,7 @@ import { TestBed, async }      from '@angular/core/testing';
 import { FormsModule }         from '@angular/forms';
 import { LoadingModule }       from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 import { HeroDetailComponent } from './hero-detail.component';
 import { Hero }                from '../../models/hero.model';
 import { HeroService, HeroServiceMock } from '../../services/hero.service';
@@ -26,7 +27,12 @@ import { HeroService, HeroServiceMock } from '../../services/hero.service';
 describe('HeroDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, LoadingModule, RouterTestingModule],
+      imports: [
+        FormsModule,
+        LoadingModule,
+        RouterTestingModule,
+        AngularFontAwesomeModule
+      ],
       declarations: [
         HeroDetailComponent,
       ],

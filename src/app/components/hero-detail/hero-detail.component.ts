@@ -29,6 +29,14 @@ export class HeroDetailComponent implements OnInit {
         this.loading = false;
       });
   };
+  save(): void {
+    this.loading = true;
+    this.heroService.update(this.hero)
+      .then(() => {
+        this.loading = false;
+        this.goBack()
+      });
+  };
   goBack(): void {
     this.location.back();
   };

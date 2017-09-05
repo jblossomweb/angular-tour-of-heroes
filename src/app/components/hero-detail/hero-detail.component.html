@@ -5,6 +5,13 @@
     <label>name: </label>
     <input [(ngModel)]="hero.name" placeholder="name"/>
   </div>
-  <button (click)="goBack()">Back</button>
+  <button (click)="goBack()">
+    <fa name="hand-o-left"></fa>
+    Back
+  </button>
+  <button (click)="save()">
+    Save
+    <fa name="floppy-o"></fa>
+  </button>
 </div>
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>

@@ -29,8 +29,16 @@
 }
 .heroes li button {
   position: absolute;
-  right: 7px;
   top: 7px;
+}
+.heroes li button.edit {
+  right: 40px;
+  padding: 5px 8px 5px 10px
+}
+.heroes li button.delete {
+  right: 7px;
+  background-color: gray !important;
+  color:white;
 }
 .heroes .text {
   position: relative;
