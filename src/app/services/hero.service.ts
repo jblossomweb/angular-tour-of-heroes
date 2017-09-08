@@ -1,4 +1,4 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { assignIn } from 'lodash';
 
@@ -16,14 +16,14 @@ export class HeroService {
     return this.http.get(`api/heroes`)
      .toPromise()
      .then(response => response.json().data as Hero[])
-     .catch(this.handleError)
+     .catch(this.handleError);
   }
 
   getHero(id): Promise<Hero> {
     return this.http.get(`api/heroes/${id}`)
      .toPromise()
      .then(response => response.json().data as Hero)
-     .catch(this.handleError)
+     .catch(this.handleError);
   }
 
   update(hero: Hero): Promise<Hero> {
@@ -67,42 +67,41 @@ export class HeroService {
 
 @Injectable()
 export class HeroServiceMock {
-  private heroes = <any>HeroesMock as Hero[]
+  private heroes = <any>HeroesMock as Hero[];
 
   getHeroes(): Promise<Hero[]> {
     return new Promise<Hero[]>((resolve) => {
-      resolve(this.heroes)
-    })
+      resolve(this.heroes);
+    });
   }
-  
+
   getHero(id): Promise<Hero> {
     return new Promise<Hero>((resolve) => {
-      resolve(this.heroes.find(hero => hero.id === id))
-    })
+      resolve(this.heroes.find(hero => hero.id === id));
+    });
   }
 
   update(update: Hero): Promise<Hero> {
     return new Promise<Hero>(async(resolve) => {
-      let hero = await this.getHero(update.id)
-      hero = assignIn(hero, update)
-      resolve(hero)
-    })
+      let hero = await this.getHero(update.id);
+      hero = assignIn(hero, update);
+      resolve(hero);
+    });
   }
 
   create(name: string): Promise<Hero> {
     return new Promise<Hero>((resolve) => {
-      let hero = {id: this.heroes.length + 1, name} as Hero
-      this.heroes.push(hero)
-      resolve(hero)
-    })
+      const hero = {id: this.heroes.length + 1, name} as Hero;
+      this.heroes.push(hero);
+      resolve(hero);
+    });
   }
 
   delete(id: number): Promise<void> {
     return new Promise<void>(async(resolve) => {
-      let hero = await this.getHero(id)
+      const hero = await this.getHero(id);
       this.heroes = this.heroes.filter(h => h !== hero);
-      resolve()
-    })
+      resolve();
+    });
   }
-
 }

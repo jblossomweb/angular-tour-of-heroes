@@ -2,7 +2,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
-let title = 'Tour of Heroes';
+const title = 'Tour of Heroes';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

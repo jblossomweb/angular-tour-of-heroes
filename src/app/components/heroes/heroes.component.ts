@@ -14,26 +14,26 @@ export class HeroesComponent implements OnInit {
   constructor(
     private heroService: HeroService,
     private router: Router
-  ) { };
-  loading: boolean = false;
-  ngOnInit(): void {
-    this.getHeroes();
-  };
+  ) { }
   heroes: Hero[];
   selectedHero: Hero;
+  loading = false;
+  ngOnInit(): void {
+    this.getHeroes();
+  }
   onSelect(hero: Hero): void {
-    this.selectedHero = hero
-  };
+    this.selectedHero = hero;
+  }
   gotoDetail(): void {
     this.router.navigate(['/hero', this.selectedHero.id]);
-  };
+  }
   getHeroes(): void {
     this.loading = true;
     this.heroService.getHeroes().then(heroes => {
       this.heroes = heroes;
       this.loading = false;
     });
-  };
+  }
   addHero(name: string): void {
     name = name.trim();
     if (!name) { return; }
@@ -41,7 +41,7 @@ export class HeroesComponent implements OnInit {
       this.heroes.push(hero);
       this.selectedHero = null;
     });
-  };
+  }
   deleteHero(hero: Hero): void {
     this.heroService.delete(hero.id).then(() => {
       this.heroes = this.heroes.filter(h => h !== hero);

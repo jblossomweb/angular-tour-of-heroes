@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { LoadingModule } from 'ngx-loading';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
@@ -8,7 +8,7 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { Hero } from '../../models/hero.model';
 import { HeroService, HeroServiceMock } from '../../services/hero.service';
 
-let title = 'Tour of Heroes';
+const title = 'Tour of Heroes';
 
 describe('HeroesComponent', () => {
   beforeEach(async(() => {
