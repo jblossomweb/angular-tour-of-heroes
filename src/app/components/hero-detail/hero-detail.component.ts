@@ -6,7 +6,7 @@ import { HeroService } from '../../services/hero.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  selector: 'hero-detail',
+  selector: 'app-hero-detail',
   providers: [HeroService],
   templateUrl: './hero-detail.component.html',
   styleUrls: ['./hero-detail.component.css']
